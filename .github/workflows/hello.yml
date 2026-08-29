@@ -16,3 +16,5 @@ jobs:
           echo "Dossier  : $(pwd)"
           echo "Node     : $(node --version)"
           echo "Docker   : $(docker --version)"
+      - name: Lister le dépôt
+        run: ls -la
