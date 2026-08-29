@@ -10,5 +10,13 @@ jobs:
       - name: Récupérer le code
         uses: actions/checkout@v4
 
-      - name: Lister le dépôt
-        run: ls -la
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Lancer les tests
+        run: npm test
