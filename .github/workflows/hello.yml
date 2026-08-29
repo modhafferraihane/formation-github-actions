@@ -9,3 +9,10 @@ jobs:
     steps:
       - name: Dire bonjour
         run: echo "Bonjour depuis GitHub Actions"
+
+      - name: Décrire la machine
+        run: |
+          echo "Système  : $(uname -a)"
+          echo "Dossier  : $(pwd)"
+          echo "Node     : $(node --version)"
+          echo "Docker   : $(docker --version)"
