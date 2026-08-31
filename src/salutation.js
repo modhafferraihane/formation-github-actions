@@ -10,5 +10,5 @@ function aujourdhui() {
 }
 function saluerTout(noms) {
   return noms.map(saluer);
-}
+
 module.exports = { saluer, aujourdhui, saluerTout };
