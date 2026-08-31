@@ -34,7 +34,7 @@ jobs:
 
   livrable:
     runs-on: ubuntu-latest
-    needs: [tests, syntaxe]
+    needs: [tests, syntaxe, version]
     steps:
       - uses: actions/checkout@v4
       - name: Construire l'archive
@@ -42,3 +42,16 @@ jobs:
           mkdir -p dist
           tar -czf dist/salutation.tar.gz src package.json
           ls -lh dist
+      - name: Afficher la version construite
+        run: echo "Archive de la version ${{ needs.version.outputs.numero }}"
+
+
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      numero: ${{ steps.lire.outputs.numero }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lire la version du package
+        id: lire
+        run: echo "numero=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
