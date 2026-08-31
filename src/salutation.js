@@ -8,5 +8,7 @@ function saluer(nom) {
 function aujourdhui() {
   return dayjs().format("YYYY-MM-DD");
 }
-
-module.exports = { saluer, aujourdhui };
+function saluerTout(noms) {
+  return noms.map(saluer);
+}
+module.exports = { saluer, aujourdhui, saluerTout };
