@@ -1,0 +1,22 @@
+name: Contextes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  inspecter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher le contexte github
+        run: |
+          echo "Événement   : ${{ github.event_name }}"
+          echo "Dépôt       : ${{ github.repository }}"
+          echo "Auteur      : ${{ github.actor }}"
+          echo "Référence   : ${{ github.ref }}"
+          echo "Branche     : ${{ github.ref_name }}"
+          echo "Commit      : ${{ github.sha }}"
+          echo "Numéro run  : ${{ github.run_number }}"
