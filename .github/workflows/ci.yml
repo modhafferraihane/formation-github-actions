@@ -44,7 +44,17 @@ jobs:
           ls -lh dist
       - name: Afficher la version construite
         run: echo "Archive de la version ${{ needs.version.outputs.numero }}"
-
+      - name: Résumé
+        run: |
+          {
+            echo "### Livrable"
+            echo ""
+            echo "| Champ | Valeur |"
+            echo "|---|---|"
+            echo "| Version | ${{ needs.version.outputs.numero }} |"
+            echo "| Commit | \`${{ github.sha }}\` |"
+            echo "| Taille | $(du -h dist/salutation.tar.gz | cut -f1) |"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   version:
     runs-on: ubuntu-latest
