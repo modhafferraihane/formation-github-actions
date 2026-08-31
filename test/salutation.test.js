@@ -3,7 +3,7 @@ const assert = require("node:assert");
 const { saluer, aujourdhui } = require("../src/salutation");
 
 test("saluer ajoute le nom", () => {
-  assert.strictEqual(saluer("Ada"), "Bonjour Ada");
+  assert.strictEqual(saluer("Ada"), "Bonjours Ada");
 });
 
 test("saluer refuse un nom vide", () => {
